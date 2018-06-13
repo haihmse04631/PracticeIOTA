@@ -35,8 +35,9 @@ function getData(bundles){
 }
 
 function formatMessage(input) {
+    let count9 = 0;
     for(let i=0; i<input.length; i++){
-         if(input[i] == '9'){
+         if(input[i] == '9' && input[i+1] == '9' && input[i+2] == '9'){
             var message = input.substring(0,i)
             console.log(iota.utils.fromTrytes(message));
             break

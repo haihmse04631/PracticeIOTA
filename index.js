@@ -15,7 +15,7 @@ remoteCurl(iota, `https://powbox.testnet.iota.org`, 500)
 
 
 const trytes =
-    'VHKHZANQOPOF9AKWOVHPSHSSSLGEAWPFSS9AWJTQVFCSOTQRDU9KKGPV9SIDWRPJNGVNNWWWMNE9XPBIX'
+    'VERTAWNTFULJCUNRZXPVBHQKBTSOOPPPNRBQ9AUYDRDFPVIJBIOBLNLNS9GGVUHXIJCHTCVOQQGVRY9IH'
 
 const message = iota.utils.toTrytes('Rau Muong - Trang Trai: ABC - fucking: Sach ')
 
@@ -74,20 +74,20 @@ const searchHash = {
 
 // decodeTrytes(code)
 
-function findAccess(hash) {
-    iota.api.getBundle(hash, function (error, bundles) {
-        if (error) {
-            console.log(`end`);
-        } else {
-            let ownHash = bundles[0].hash
-            let trunkTransaction = bundles[0].trunkTransaction
-            console.log(ownHash)
-            findAccess(trunkTransaction)
-        }
-    })
-}
+// function findAccess(hash) {
+//     iota.api.getBundle(hash, function (error, bundles) {
+//         if (error) {
+//             console.log(`end`);
+//         } else {
+//             let ownHash = bundles[0].hash
+//             let trunkTransaction = bundles[0].trunkTransaction
+//             console.log(ownHash)
+//             findAccess(trunkTransaction)
+//         }
+//     })
+// }
 
-findAccess(hash3)
+// findAccess(hash3)
 // function findOneAccess(hash) {
 //     iota.api.getBundle(hash, function (error, bundles) {
 //         if (error) {
@@ -125,13 +125,17 @@ findAccess(hash3)
 //     }
 // })
 
-// iota.api.getAccountData(trytes, function(error, success){
-//     if(error){
-//         console.log(error);
-//     }else{
-//         console.log(success);
-//     }
-// })
+function getAccountData(seed){
+    iota.api.getAccountData(seed, function(error, success){
+        if(error){
+            console.log(error);
+        }else{
+            console.log(success);
+        }
+    })
+}
+
+
 
 
 
